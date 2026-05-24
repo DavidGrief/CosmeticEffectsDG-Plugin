@@ -75,13 +75,6 @@ firework_spark
 slime_bounce
 ```
 
-## Сборка
-
-Нужна Java 16 и Maven.
-
-```bash
-mvn clean package
-```
 
 Готовый `.jar` появится в:
 
