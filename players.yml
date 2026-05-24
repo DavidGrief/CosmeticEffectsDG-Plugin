@@ -1,0 +1,50 @@
+package ru.dg.cosmetics.model;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+import java.util.UUID;
+
+public final class PlayerCosmeticData {
+
+    private final UUID uuid;
+    private String name;
+    private final Set<String> unlocked;
+    private String active;
+
+    public PlayerCosmeticData(UUID uuid, String name) {
+        this(uuid, name, new LinkedHashSet<>(), null);
+    }
+
+    public PlayerCosmeticData(UUID uuid, String name, Set<String> unlocked, String active) {
+        this.uuid = uuid;
+        this.name = name;
+        this.unlocked = unlocked == null ? new LinkedHashSet<>() : new LinkedHashSet<>(unlocked);
+        this.active = active;
+    }
+
+    public UUID getUuid() { return uuid; }
+    public String getName() { return name; }
+    public void setName(String name) { if (name != null && !name.isBlank()) this.name = name; }
+    public Set<String> getUnlocked() { return unlocked; }
+    public String getActive() { return active; }
+    public void setActive(String active) { this.active = active; }
+
+    public boolean hasEffect(String id) {
+        return unlocked.contains(id.toLowerCase());
+    }
+
+    public boolean addEffect(String id) {
+        return unlocked.add(id.toLowerCase());
+    }
+
+    public boolean removeEffect(String id) {
+        boolean removed = unlocked.remove(id.toLowerCase());
+        if (active != null && active.equalsIgnoreCase(id)) active = null;
+        return removed;
+    }
+
+    public void clear() {
+        unlocked.clear();
+        active = null;
+    }
+}

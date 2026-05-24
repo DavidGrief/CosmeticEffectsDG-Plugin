@@ -1,0 +1,26 @@
+package ru.dg.cosmetics.model;
+
+import org.bukkit.Sound;
+
+public final class SoundConfig {
+
+    private final boolean enabled;
+    private final Sound sound;
+    private final float volume;
+    private final float pitch;
+    private final int intervalTicks;
+
+    public SoundConfig(boolean enabled, Sound sound, float volume, float pitch, int intervalTicks) {
+        this.enabled = enabled;
+        this.sound = sound;
+        this.volume = volume;
+        this.pitch = pitch;
+        this.intervalTicks = intervalTicks;
+    }
+
+    public boolean isEnabled() { return enabled && sound != null; }
+    public Sound getSound() { return sound; }
+    public float getVolume() { return volume; }
+    public float getPitch() { return pitch; }
+    public int getIntervalTicks() { return Math.max(20, intervalTicks); }
+}

@@ -1,0 +1,74 @@
+package ru.dg.cosmetics.model;
+
+import org.bukkit.Material;
+import org.bukkit.Particle;
+
+import java.util.Collections;
+import java.util.List;
+
+public final class CosmeticEffect {
+
+    private final String id;
+    private final boolean enabled;
+    private final String displayName;
+    private final Material menuItem;
+    private final int slot;
+    private final AnimationType animationType;
+    private final Particle particle;
+    private final Particle secondaryParticle;
+    private final int amount;
+    private final double radius;
+    private final double speed;
+    private final double height;
+    private final SoundConfig soundConfig;
+    private final String permission;
+    private final List<String> description;
+
+    public CosmeticEffect(String id,
+                          boolean enabled,
+                          String displayName,
+                          Material menuItem,
+                          int slot,
+                          AnimationType animationType,
+                          Particle particle,
+                          Particle secondaryParticle,
+                          int amount,
+                          double radius,
+                          double speed,
+                          double height,
+                          SoundConfig soundConfig,
+                          String permission,
+                          List<String> description) {
+        this.id = id;
+        this.enabled = enabled;
+        this.displayName = displayName;
+        this.menuItem = menuItem;
+        this.slot = slot;
+        this.animationType = animationType;
+        this.particle = particle;
+        this.secondaryParticle = secondaryParticle;
+        this.amount = amount;
+        this.radius = radius;
+        this.speed = speed;
+        this.height = height;
+        this.soundConfig = soundConfig;
+        this.permission = permission;
+        this.description = description == null ? Collections.emptyList() : description;
+    }
+
+    public String getId() { return id; }
+    public boolean isEnabled() { return enabled; }
+    public String getDisplayName() { return displayName; }
+    public Material getMenuItem() { return menuItem; }
+    public int getSlot() { return slot; }
+    public AnimationType getAnimationType() { return animationType; }
+    public Particle getParticle() { return particle; }
+    public Particle getSecondaryParticle() { return secondaryParticle; }
+    public int getAmount() { return amount; }
+    public double getRadius() { return radius; }
+    public double getSpeed() { return speed; }
+    public double getHeight() { return height; }
+    public SoundConfig getSoundConfig() { return soundConfig; }
+    public String getPermission() { return permission; }
+    public List<String> getDescription() { return description; }
+}

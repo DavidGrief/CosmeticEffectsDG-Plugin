@@ -1,0 +1,18 @@
+package ru.dg.cosmetics.model;
+
+public enum AnimationType {
+    TRAIL,
+    AURA,
+    SPIRAL,
+    RING,
+    PULSE;
+
+    public static AnimationType fromString(String value) {
+        if (value == null) return AURA;
+        try {
+            return AnimationType.valueOf(value.trim().toUpperCase());
+        } catch (IllegalArgumentException ex) {
+            return AURA;
+        }
+    }
+}
